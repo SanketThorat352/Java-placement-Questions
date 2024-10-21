@@ -1,0 +1,4 @@
+It is similar to 2D matrices that we studied in 11th and 12th class.
+
+Creating a 2D Array - with new keyword
+int[][] marks = new int[3][3];
