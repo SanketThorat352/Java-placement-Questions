@@ -1,1 +1,80 @@
+// Node class to represent elements of the tree
+class Node {
+    int value;
+    Node left, right;
 
+    Node(int value) {
+        this.value = value;
+        left = right = null;
+    }
+}
+
+// Binary Search Tree class
+class BinarySearchTree {
+    Node root;
+
+    // Insert a node into the tree
+    void insert(int value) {
+        root = insertRec(root, value);
+    }
+
+    private Node insertRec(Node root, int value) {
+        if (root == null) {
+            root = new Node(value);
+            return root;
+        }
+        if (value < root.value) {
+            root.left = insertRec(root.left, value);
+        } else if (value > root.value) {
+            root.right = insertRec(root.right, value);
+        }
+        return root;
+    }
+
+    // InOrder traversal (left, root, right)
+    void inOrder() {
+        inOrderRec(root);
+    }
+
+    private void inOrderRec(Node root) {
+        if (root != null) {
+            inOrderRec(root.left);
+            System.out.print(root.value + " ");
+            inOrderRec(root.right);
+        }
+    }
+
+    // Search a value in the tree
+    boolean search(int value) {
+        return searchRec(root, value);
+    }
+
+    private boolean searchRec(Node root, int value) {
+        if (root == null) {
+            return false;
+        }
+        if (root.value == value) {
+            return true;
+        }
+        return value < root.value ? searchRec(root.left, value) : searchRec(root.right, value);
+    }
+
+    public static void main(String[] args) {
+        BinarySearchTree bst = new BinarySearchTree();
+
+        // Insert nodes
+        bst.insert(50);
+        bst.insert(30);
+        bst.insert(70);
+        bst.insert(20);
+        bst.insert(40);
+        bst.insert(60);
+        bst.insert(80);
+
+        System.out.println("InOrder Traversal:");
+        bst.inOrder();
+
+        System.out.println("\nSearch 40: " + bst.search(40)); // Output: true
+        System.out.println("Search 100: " + bst.search(100)); // Output: false
+    }
+}
