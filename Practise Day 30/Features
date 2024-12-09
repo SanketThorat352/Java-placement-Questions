@@ -1,1 +1,4 @@
-
+Features:
+Insertion: Adds elements to the tree in a way that smaller values go to the left, and larger ones to the right.
+InOrder Traversal: Prints tree nodes in ascending order.
+Search: Finds whether a specific value exists in the tree.
