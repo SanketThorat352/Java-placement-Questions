@@ -1,0 +1,41 @@
+// Class representing a node in the tree
+class Node {
+    int value;
+    Node left, right;
+
+    Node(int value) {
+        this.value = value;
+        left = right = null;
+    }
+}
+
+// Class for the Binary Tree
+class BinaryTree {
+    Node root;
+
+    // Method to traverse the tree in InOrder
+    void inOrderTraversal(Node node) {
+        if (node == null) {
+            return;
+        }
+        // Traverse left subtree
+        inOrderTraversal(node.left);
+        // Visit the root
+        System.out.print(node.value + " ");
+        // Traverse right subtree
+        inOrderTraversal(node.right);
+    }
+
+    public static void main(String[] args) {
+        // Create a binary tree
+        BinaryTree tree = new BinaryTree();
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+        tree.root.left.left = new Node(4);
+        tree.root.left.right = new Node(5);
+
+        System.out.println("InOrder Traversal:");
+        tree.inOrderTraversal(tree.root);
+    }
+}
