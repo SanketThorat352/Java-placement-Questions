@@ -39,3 +39,16 @@ class BinaryTree {
         tree.inOrderTraversal(tree.root);
     }
 }
+
+Output:
+yaml
+Copy code
+InOrder Traversal:
+4 2 5 1 3
+
+
+Explanation:
+Node Class: Represents individual tree nodes with values and left/right child references.
+BinaryTree Class: Holds the tree structure and traversal logic.
+InOrder Traversal: Visits the left subtree, root, and then the right subtree.
+Main Method: Builds a simple tree and performs an in-order traversal.
